@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BB355F8-9DF8-4773-8E57-58C4A6012FA9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldenPatchUpdater</RootNamespace>
+    <AssemblyName>GoldenPatchUpdater</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ModUpdate.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ModUpdate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GZipLib\Checksums\Adler32.cs" />
+    <Compile Include="GZipLib\Checksums\CRC32.cs" />
+    <Compile Include="GZipLib\Checksums\IChecksum.cs" />
+    <Compile Include="GZipLib\Checksums\StrangeCRC.cs" />
+    <Compile Include="GZipLib\Core\FileSystemScanner.cs" />
+    <Compile Include="GZipLib\Core\INameTransform.cs" />
+    <Compile Include="GZipLib\Core\IScanFilter.cs" />
+    <Compile Include="GZipLib\Core\NameFilter.cs" />
+    <Compile Include="GZipLib\Core\PathFilter.cs" />
+    <Compile Include="GZipLib\Core\StreamUtils.cs" />
+    <Compile Include="GZipLib\Core\WindowsPathUtils.cs" />
+    <Compile Include="GZipLib\Encryption\PkzipClassic.cs" />
+    <Compile Include="GZipLib\Encryption\ZipAESStream.cs" />
+    <Compile Include="GZipLib\Encryption\ZipAESTransform.cs" />
+    <Compile Include="GZipLib\GZip\GZIPConstants.cs" />
+    <Compile Include="GZipLib\GZip\GZipException.cs" />
+    <Compile Include="GZipLib\GZip\GzipInputStream.cs" />
+    <Compile Include="GZipLib\GZip\GzipOutputStream.cs" />
+    <Compile Include="GZipLib\Main.cs" />
+    <Compile Include="GZipLib\SharpZipBaseException.cs" />
+    <Compile Include="GZipLib\Tar\InvalidHeaderException.cs" />
+    <Compile Include="GZipLib\Tar\TarArchive.cs" />
+    <Compile Include="GZipLib\Tar\TarBuffer.cs" />
+    <Compile Include="GZipLib\Tar\TarEntry.cs" />
+    <Compile Include="GZipLib\Tar\TarException.cs" />
+    <Compile Include="GZipLib\Tar\TarHeader.cs" />
+    <Compile Include="GZipLib\Tar\TarInputStream.cs" />
+    <Compile Include="GZipLib\Tar\TarOutputStream.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Deflater.cs" />
+    <Compile Include="GZipLib\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="GZipLib\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="GZipLib\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="GZipLib\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Inflater.cs" />
+    <Compile Include="GZipLib\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="GZipLib\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="GZipLib\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="GZipLib\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="GZipLib\Zip\FastZip.cs" />
+    <Compile Include="GZipLib\Zip\IEntryFactory.cs" />
+    <Compile Include="GZipLib\Zip\WindowsNameTransform.cs" />
+    <Compile Include="GZipLib\Zip\ZipConstants.cs" />
+    <Compile Include="GZipLib\Zip\ZipEntry.cs" />
+    <Compile Include="GZipLib\Zip\ZipEntryFactory.cs" />
+    <Compile Include="GZipLib\Zip\ZipException.cs" />
+    <Compile Include="GZipLib\Zip\ZipExtraData.cs" />
+    <Compile Include="GZipLib\Zip\ZipFile.cs" />
+    <Compile Include="GZipLib\Zip\ZipHelperStream.cs" />
+    <Compile Include="GZipLib\Zip\ZipInputStream.cs" />
+    <Compile Include="GZipLib\Zip\ZipNameTransform.cs" />
+    <Compile Include="GZipLib\Zip\ZipOutputStream.cs" />
+    <Compile Include="InifileUtils.cs" />
+    <Compile Include="ModUpdaterDownloader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModUpdaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModUpdaterIniReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModUpdaterRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModUpdaterRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ModUpdaterUnCompress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 4.5
+</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ModUpdaterRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModUpdaterRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
